@@ -1,12 +1,3 @@
-/*//Идентификатор группы
-export const cohortId = "cohort-28";
-//Токен
-export const headers = {
-  headers: {
-    authorization: "f77a7956-a5a9-4ad6-a04a-920b557c7dfd",
-  },
-};*/
-
 class Api {
   constructor(options) {
     this._headers = options.headers;
@@ -36,9 +27,6 @@ class Api {
         about: about,
       }),
     }).then(this._checkRes);
-    /*.finally(() => {
-            Popup.close();
-        })*/
   }
   //обновление аватарки
   updateAvatar(link) {
@@ -49,9 +37,6 @@ class Api {
         avatar: link,
       }),
     }).then(this._checkRes);
-    /*.finally(() => {
-            Popup.close();
-        })*/
   }
   //отправляем карточки
   getNewCards(name, link) {
@@ -63,9 +48,6 @@ class Api {
         link: link,
       }),
     }).then(this._checkRes);
-    /*.finally(() => {
-                Popup.close();
-            })*/
   }
 
   //удаление карточки

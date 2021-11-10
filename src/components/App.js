@@ -1,10 +1,9 @@
 import React from "react";
-import "../../src/index.css";
 import Header from "./Header";
-import Main from "./main";
+import Main from "./Main";
 import Footer from "./Footer";
-import PopupEditeProfile from "./PopupEditeProfile";
-import PopupEditeCard from "./PopupEditeCard";
+import PopupEditProfile from "./PopupEditProfile";
+import PopupEditCard from "./PopupEditCard";
 import PopupUpdateAvatar from "./PopupUpdateAvatar";
 import ImagePopup from "./ImagePopup";
 
@@ -45,8 +44,8 @@ function App() {
         onCardClick={handleCardClick}
       />
       <Footer />
-      <PopupEditeProfile isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
-      <PopupEditeCard isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+      <PopupEditProfile isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
+      <PopupEditCard isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
       <PopupUpdateAvatar isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} />
       <ImagePopup card={selectedCard !== null && selectedCard} onClose={closeAllPopups} />
     </div>

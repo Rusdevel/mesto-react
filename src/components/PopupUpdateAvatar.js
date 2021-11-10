@@ -1,5 +1,4 @@
 import React from "react";
-import "../../src/index.css";
 import PopupWithForm from "./PopupWithForm";
 
 function PopupUpdateAvatar(props) {

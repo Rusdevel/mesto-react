@@ -1,5 +1,4 @@
 import React from "react";
-import "../../src/index.css";
 import api from "../utils/Api";
 import Card from "./Card";
 
@@ -24,7 +23,7 @@ function Main(props) {
     <main className="content">
       <section className="section profile">
         <div className="profile__avatar-block">
-          <img className="profile__avatar" style={{ backgroundImage: `url(${userAvatar})` }} src={userAvatar} alt="Аватар" />
+          <img className="profile__avatar" src={userAvatar} alt="Аватар" />
           <div onClick={props.onEditAvatar} className="profile__avatar-button"></div>
         </div>
 
@@ -43,16 +42,6 @@ function Main(props) {
           <Card onCardClick={props.onCardClick} key={card._id} card={card} />
         ))}
       </section>
-
-      <div className="popup popup_type_delete-card">
-        <div className="popup__content">
-          <button className="popup__close" type="button"></button>
-          <h2 className="popup__title">Вы уверены?</h2>
-          <button className="button popup__button" type="submit">
-            Да
-          </button>
-        </div>
-      </div>
     </main>
   );
 }
