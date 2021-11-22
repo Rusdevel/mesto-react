@@ -1,11 +1,33 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function PopupEditCard(props) {
+function AddPlacePopup(props) {
+  const [name, setName] = React.useState("");
+  const [link, setLink] = React.useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.onAddPlace({
+      name: name,
+      link: link,
+    });
+  }
+
+  //меняем название карточки
+  function changeName(e) {
+    setName(e.target.value);
+  }
+
+  //меняем ссылку
+  function changeLink(e) {
+    setLink(e.target.value);
+  }
+
   return (
     <PopupWithForm
       isOpen={props.isOpen}
       onClose={props.onClose}
+      onSubmit={handleSubmit}
       name="edite-card"
       title="Новое место"
       buttonText="Сохранить"
@@ -13,6 +35,8 @@ function PopupEditCard(props) {
       <input
         type="text"
         name="name"
+        value={name}
+        onChange={changeName}
         id="nameCard"
         className="
                   popup__input
@@ -28,6 +52,8 @@ function PopupEditCard(props) {
       <input
         type="url"
         name="link"
+        value={link}
+        onChange={changeLink}
         id="descriptionCard"
         className="
                   popup__input
@@ -46,4 +72,4 @@ function PopupEditCard(props) {
   );
 }
 
-export default PopupEditCard;
+export default AddPlacePopup;

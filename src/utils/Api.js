@@ -18,13 +18,13 @@ class Api {
   }
 
   //отправляем измененные данные пользовотеля на сервер
-  editeUserDate(name, about) {
+  editeUserDate(data) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        about: about,
+        name: data.name,
+        about: data.about,
       }),
     }).then(this._checkRes);
   }
@@ -34,18 +34,18 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar: link,
+        avatar: link.avatar,
       }),
     }).then(this._checkRes);
   }
   //отправляем карточки
-  getNewCards(name, link) {
+  getNewCards(data) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        link: link,
+        name: data.name,
+        link: data.link,
       }),
     }).then(this._checkRes);
   }
@@ -71,6 +71,14 @@ class Api {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkRes);
+  }
+  //изменяем статус лайка
+  changeLikeCardStatus(id, isLiked) {
+    if (isLiked) {
+      return this.setLike(id);
+    } else {
+      return this.removeLike(id);
+    }
   }
 
   // проверяем приняли ли запрос
