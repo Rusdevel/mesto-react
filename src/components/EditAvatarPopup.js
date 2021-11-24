@@ -10,9 +10,16 @@ function EditAvatarPopup(props) {
     props.onUpdateAvatar({
       avatar: avatarRef.current.value,
     });
-    //сбросил инпуты
-    avatarRef.current.value = "";
   }
+  //очистил инпуты перед открытие попапа
+  React.useEffect(
+    () => {
+      //сбросил инпуты
+      avatarRef.current.value = "";
+    },
+    //открыл попап
+    [props.isOpen]
+  );
 
   return (
     <PopupWithForm
