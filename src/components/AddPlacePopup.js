@@ -13,6 +13,16 @@ function AddPlacePopup(props) {
     });
   }
 
+  //очистил инпуты перед открытие попапа
+  React.useEffect(
+    () => {
+      setLink("");
+      setName("");
+    },
+    //открыл попап
+    [props.isOpen]
+  );
+
   //меняем название карточки
   function changeName(e) {
     setName(e.target.value);
@@ -35,7 +45,7 @@ function AddPlacePopup(props) {
       <input
         type="text"
         name="name"
-        value={name}
+        value={name || ""}
         onChange={changeName}
         id="nameCard"
         className="
@@ -52,7 +62,7 @@ function AddPlacePopup(props) {
       <input
         type="url"
         name="link"
-        value={link}
+        value={link || ""}
         onChange={changeLink}
         id="descriptionCard"
         className="

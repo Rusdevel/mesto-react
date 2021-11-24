@@ -48,7 +48,7 @@ function EditProfilePopup(props) {
         type="text"
         id="nameProfile"
         name="name"
-        value={name}
+        value={name || ""}
         minLength="2"
         maxLength="40"
         className="popup__input popup__input_type_name"
@@ -60,7 +60,7 @@ function EditProfilePopup(props) {
       <input
         type="text"
         name="description"
-        value={description}
+        value={description || ""}
         id="descriptionProfile"
         minLength="2"
         maxLength="200"

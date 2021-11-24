@@ -2,7 +2,7 @@ import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function EditAvatarPopup(props) {
-  const avatarRef = React.useRef(); // записываем объект, возвращаемый хуком, в переменную
+  const avatarRef = React.useRef(""); // записываем объект, возвращаемый хуком, в переменную
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -10,6 +10,8 @@ function EditAvatarPopup(props) {
     props.onUpdateAvatar({
       avatar: avatarRef.current.value,
     });
+    //сбросил инпуты
+    avatarRef.current.value = "";
   }
 
   return (
